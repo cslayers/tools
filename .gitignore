@@ -30,3 +30,6 @@
 *.exe
 *.out
 *.app
+
+
+/3rdparty/eigen-eigen-b3f3d4950030/*
