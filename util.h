@@ -190,7 +190,9 @@ int write_point_file(vector<Point> &points, string path);
 //iter_time是ransac迭代次数
 //max_distance是一个距离阈值，当点到平面的距离小于它时，表示该点与平面一致。
 //max_distance单位是像素
-Plane ransac_iter(vector<Point> &points, vector<Point> &points_filtered, float_t max_distance = 1, int iter_times = 150);
+const int default_ransac_iter_times = 150;
+const float_t default_ransac_max_distance = (float_t)0.5;
+Plane ransac_iter(vector<Point> &points, vector<Point> &points_filtered, float_t max_distance = default_ransac_max_distance, int iter_times = default_ransac_iter_times);
 
 //返回一个Eigen矩阵 3x3, 这个矩阵是v到 target v的旋转矩阵
 // R * v = target_v
