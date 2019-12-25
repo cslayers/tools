@@ -31,5 +31,8 @@
 *.out
 *.app
 
-
+#eigen
 /3rdparty/eigen-eigen-b3f3d4950030/*
+
+#layout file
+*.layout

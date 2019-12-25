@@ -14,7 +14,7 @@ using std::ostream;
 using std::string;
 using std::vector;
 
-#include <Eigen/Dense>
+#include <Eigen/Dense> //you may need to unzip the eigen package 
 
 inline void wait()
 {
