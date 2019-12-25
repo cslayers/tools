@@ -39,10 +39,6 @@ int write_point_file(vector<Point>& points,string path){
 
 
 
-int write_point_file(vector<Point>& points,string path);
-
-
-
 
 Plane _get_plane(vector<Point>& points){
 	set<int> ids;

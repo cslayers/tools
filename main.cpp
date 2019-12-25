@@ -86,6 +86,21 @@ int handle_3d_point_file(int argc, char **argv)
 	write_point_file(points_filtered, filepath + ".filtered.txt");
 
 	return 0;
+
+
+	//知识点--------
+	//RANSAC算法
+	//三维平面方程
+	//平面法向量
+	//旋转矩阵
+	//四元数
+	//最小二乘
+	//矩阵求逆
+	//叉积
+	//点积
+	//归一化
+	//知识点--------
+	
 }
 
 
