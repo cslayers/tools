@@ -39,7 +39,7 @@ int handle_3d_point_file(int argc, char **argv)
 	Plane plane;
 	if(argc == 2){
 		//用默认参数
-		cout << "Using default max distance: 1 pixel" << endl; 
+		cout << "Using default max distance: 0.5 pixel" << endl; 
 		plane = ransac_iter(points, points_filtered); // ransac过滤局外点，然后存到filtered
 	}
 	else {
