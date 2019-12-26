@@ -2,6 +2,8 @@
 
 #include <cfloat>
 #include <iostream>
+#include <vector>
+#include <set>
 using namespace std;
 
 void init(){
@@ -35,6 +37,7 @@ int handle_3d_point_file(int argc, char **argv)
 	read_point_file(filepath, points);
 
 	vector<Point> points_filtered;
+	vector<Point> points_filter_out;
 	
 	Plane plane;
 	if(argc == 2){
@@ -48,6 +51,17 @@ int handle_3d_point_file(int argc, char **argv)
 		cin >> max_distance;
 		plane = ransac_iter(points, points_filtered,max_distance);
 	}
+
+
+	set<Point> points_filtered_set;
+	for(auto& p: points_filtered){
+		points_filtered_set.insert(p);
+	}
+	for(auto& p: points){
+		if(!points_filtered_set.count(p))
+		points_filter_out.push_back(p);
+	}
+
 	
 	cout << "Plane equation: ax + by + cz - 1 = 0" << endl;
 	cout << "Best plane " << plane.abc << endl;
@@ -89,7 +103,8 @@ int handle_3d_point_file(int argc, char **argv)
 	write_point_file(points_rotated, filepath + ".transed.txt");
 	cout << "Writing point file:["<<filepath << ".filtered.txt] Point number:" << points_filtered.size() << endl;
 	write_point_file(points_filtered, filepath + ".filtered.txt");
-
+	cout << "Writing point file:["<<filepath << ".filteree.txt] Point number:" << points_filter_out.size() << endl;
+	write_point_file(points_filter_out, filepath + ".filteree.txt");
 	return 0;
 
 

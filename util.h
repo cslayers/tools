@@ -88,6 +88,19 @@ public:
 		res << x, y, z;
 		return res;
 	}
+
+	bool operator<(const Point& rhs)const {
+		if(z == rhs.z){
+			if( y == rhs.y){
+				if(x < rhs.x) return true;
+				else return false;
+			}
+			else if (y > rhs.y) return false;
+			else return true;
+		}
+		else if (z > rhs.z) return false;
+		else return true;
+	}
 };
 
 typedef Point Vector; // 三维向量，以0为起点，其终点是一个点
