@@ -198,4 +198,6 @@ Plane ransac_iter(vector<Point> &points, vector<Point> &points_filtered, float_t
 // R * v = target_v
 Eigen::Matrix3d get_rotation_matrix(Vector v, Vector target_v);
 
+float_t _error_sum(vector<Point>& points,Plane& plane);
+
 #endif

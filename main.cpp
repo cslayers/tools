@@ -39,7 +39,7 @@ int handle_3d_point_file(int argc, char **argv)
 	Plane plane;
 	if(argc == 2){
 		//用默认参数
-		cout << "Using default max distance: 0.5 pixel" << endl; 
+		cout << "Using default max distance: 0.5 " << endl; 
 		plane = ransac_iter(points, points_filtered); // ransac过滤局外点，然后存到filtered
 	}
 	else {
@@ -53,6 +53,11 @@ int handle_3d_point_file(int argc, char **argv)
 	cout << "Best plane " << plane.abc << endl;
 	cout << "Origin fitted plane " << Plane(points).abc << endl;
 	cout << "Outliers:" << 100 - 100 * points_filtered.size() / (0.0 + points.size()) << "%" << endl;
+
+	Plane ori = Plane(points);
+	cout << "Error before filter: " << _error_sum(points,ori) << endl;
+	cout << "Error after  filter: " << _error_sum(points_filtered,plane) << endl;
+
 	//获得法向量，系数a b c 就是一个法向量
 	Vector v = plane.abc.normalize();
 	Vector target_v = Vector(0, 0, 1);
