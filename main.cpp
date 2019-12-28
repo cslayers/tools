@@ -40,12 +40,14 @@ int handle_3d_point_file(int argc, char **argv)
 	vector<Point> points_filter_out;
 	
 	Plane plane;
-	if(argc == 2){
+	cout << "Input 'e' to setting, or Press Enter directly to use default:  ";
+	char flag = getchar();
+	cout << endl;
+	if(flag !='e'){
 		//用默认参数
 		cout << "Using default max distance: 0.5 " << endl; 
 		plane = ransac_iter(points, points_filtered); // ransac过滤局外点，然后存到filtered
-	}
-	else {
+	} else{
 		float_t max_distance = 1;
 		cout << "Input Max distance for RANSAC:  (pixels)"; 
 		cin >> max_distance;
